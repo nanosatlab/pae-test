@@ -1,6 +1,7 @@
 /***************************************************************************************************
 *  File:        Data.hpp                                                                           *
 *  Authors:     Oriol Fusté (OF)                                                                   *
+*               Pau Luque Lozano (PLL)                                                             *
 *  Creation:    2018-oct-17                                                                        *
 *  Description: Standarized classs for data handling                                               *
 *                                                                                                  *
@@ -16,16 +17,31 @@
 
 #include "dss.hpp"
 
+/***********************************************************************************************//**
+ *  The final type of a Data object (once it is extended).
+ **************************************************************************************************/
+enum class DataType
+{
+  SCIENTIFIC,           /**< The data has scientific purposes                                     */
+  LOGISTIC              /**< The data has logistic purposes                                       */
+};
+
+/***********************************************************************************************//**
+ *  A class to encapsulate the data chunks that the different models move by the emulated system   *
+ **************************************************************************************************/
 class Data
 {
 
 public:
+
     /**********************************************************************************************//**
     * Basic constructor that initializes the member attributes.
-    * @param     sat_origin                The ID of the satellite where this data was generated
+    * @param     origin_id                 The ID of the generator of this data
+    *            destiny_id                The ID of the final receiver of this data
     *            bytes                     Amount of data in bytes represented by this object
     **************************************************************************************************/
-    Data(std::string sat_origin, double bytes);
+    Data(std::string origin_id, std::string destiny_id, float bytes);
+
     /**********************************************************************************************//**
     * Auto-generated destructor.
     **************************************************************************************************/
@@ -39,7 +55,7 @@ public:
     /**********************************************************************************************//**
     * Auto-generated assign operator.
     **************************************************************************************************/
-    Data& operator=(cpnst Data&) = default;
+    Data& operator=(const Data&) = default;
 
     /**********************************************************************************************//**
     * Auto-generated move constructor.
@@ -54,17 +70,32 @@ public:
     /**********************************************************************************************//**
     * Getters for the attributes.
     **************************************************************************************************/
-    std::string getSatOrigin(void);
-    double getBytes(void);
+    std::string getOriginId(void);
+    std::string getDestinyId(void);
+    DataType getDataType(void);
+    float getBytes(void);
+
+    /**********************************************************************************************//**
+    * Setters for the attributes.
+    **************************************************************************************************/
+    void setOriginId(std::string id_origin);
+    void setDestinyId(std::string id_destiny);
+    void setDataType(DataType type_of_data);
+    void setBytes(float) number_of_bytes);
 
     /**********************************************************************************************//**
     * JSON string converter function                          (PENDIENTE)
     **************************************************************************************************/
-    
+    void serialize(Serializer&, SerializedClass<Serializer,SerializedType>);
+    /*The function we need is something like this?*/
+
 protected:
-    std::string m_sat_origin;                    /* The ID of the satellite who generated this object */
-    double m_bytes;                            /* The amount of data bytes represented by this object */
+    std::string m_origin_id;                  /* The ID of the entity who generated this object       */
+    std::string m_destiny_id;                 /* The ID of the entity that will receive this object   */
+    DataType m_data_type;                     /* The final type of this object once is extended       */
+    float m_bytes;                              /* The amount of data bytes represented by this object  */
+
 
 };
 
-#endif
+#endif /* __DATA_HPP__ */
