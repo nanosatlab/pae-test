@@ -16,13 +16,13 @@
 #define __DATA_SCIENTIFIC_HPP__
 
 #include "dss.hpp"
-#include "Data.hpp"
+#include "DataExchangeObj.hpp"
 #include "PayloadSpec.hpp"
 
 /***********************************************************************************************//**
  *  This class extends Data. Its purpose is to be used to encapsulate payload data.                *
  **************************************************************************************************/
-class DataScientific : public Data
+class DataScientific : public DataExchangeObj
 {
 
 public:

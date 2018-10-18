@@ -1,5 +1,5 @@
 /***************************************************************************************************
-*  File:        Data.hpp                                                                           *
+*  File:        DataExchangeObj.hpp                                                                           *
 *  Authors:     Oriol Fusté (OF)                                                                   *
 *               Pau Luque Lozano (PLL)                                                             *
 *  Creation:    2018-oct-17                                                                        *
@@ -11,14 +11,15 @@
 *  Changelog:                                                                                      *
 *  v#   Date            Author  Description                                                        *
 *  0.1  2018-oct-17     OF      Creation                                                           *
+*  0.2  2018-oct-18     PLL     Class name change (Data-->DataExhangeObj)
 ***************************************************************************************************/
-#ifndef __DATA_HPP__
-#define __DATA_HPP__
+#ifndef __DATA_EXCHANGE_OBJ_HPP__
+#define __DATA_EXCHANGE_OBJ_HPP__
 
 #include "dss.hpp"
 
 /***********************************************************************************************//**
- *  The final type of a Data object (once it is extended).
+ *  The final type of a DataExchangeObj (once it is extended).
  **************************************************************************************************/
 enum class DataType
 {
@@ -29,7 +30,7 @@ enum class DataType
 /***********************************************************************************************//**
  *  A class to encapsulate the data chunks that the different models move by the emulated system   *
  **************************************************************************************************/
-class Data
+class DataExchangeObj
 {
 
 public:
@@ -40,32 +41,32 @@ public:
     *            destiny_id                The ID of the final receiver of this data
     *            bytes                     Amount of data in bytes represented by this object
     **************************************************************************************************/
-    Data(std::string origin_id, std::string destiny_id, float bytes);
+    DataExchangeObj(std::string origin_id, std::string destiny_id, float bytes);
 
     /**********************************************************************************************//**
     * Auto-generated destructor.
     **************************************************************************************************/
-    ~Data(void) = default;
+    ~DataExchangeObj(void) = default;
 
     /**********************************************************************************************//**
     * Auto-generated copy constructor.
     **************************************************************************************************/
-    Data(const Data&) = default;
+    DataExchangeObj(const DataExchangeObj&) = default;
 
     /**********************************************************************************************//**
     * Auto-generated assign operator.
     **************************************************************************************************/
-    Data& operator=(const Data&) = default;
+    DataExchangeObj& operator=(const DataExchangeObj&) = default;
 
     /**********************************************************************************************//**
     * Auto-generated move constructor.
     **************************************************************************************************/
-    Data(Data&&) = default;
+    DataExchangeObj(DataExchangeObj&&) = default;
 
     /**********************************************************************************************//**
     * Auto-generated move-assign operator.
     **************************************************************************************************/
-    Data& operator=(Data&&) =default;
+    DataExchangeObj& operator=(DataExchangeObj&&) =default;
 
     /**********************************************************************************************//**
     * Getters for the attributes.
@@ -98,4 +99,4 @@ protected:
 
 };
 
-#endif /* __DATA_HPP__ */
+#endif /* __DATA_EXCHANGE_OBJ_HPP__ */
