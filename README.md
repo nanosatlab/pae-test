@@ -1,5 +1,5 @@
 # Git tutorial repository
-Welcome to this temporal repo that we'll use during Thursday's lecture on Git. Feel free to explore GitHub's web-based features at [nanosatlab/pae-test](https://github.com/nanosatlab/pae-test).
+Welcome to this temporal repo that we will be using for the Git seminar. Feel free to explore GitHub's web-based features at [nanosatlab/pae-test](https://github.com/nanosatlab/pae-test).
 
 ## Git cheat sheet (simplified)
 Below you'll find a list of some of the most common `git` commands. Two neat and comprehensive cheat sheets can be found [here](https://www.atlassian.com/dam/jcr:8132028b-024f-4b6b-953e-e68fcce0c5fa/atlassian-git-cheatsheet.pdf) and [here](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf).
